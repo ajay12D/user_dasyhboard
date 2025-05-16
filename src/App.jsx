@@ -3,6 +3,7 @@ import React from "react";
  import { BrowserRouter,Routes,Route } from "react-router-dom";
 import { Singnin } from "./components/signin.jsx";
 import {UserProfile} from "./components/user_dashboard.jsx";
+import { User } from "./components/user.jsx";
 
 export const App = () => {
   return(
@@ -12,8 +13,8 @@ export const App = () => {
      <Route path= "/signup" Component={Singnup}/>
       <Route path = "/signin" Component={Singnin}/>
       <Route path = "/profile" Component={UserProfile}/>
-     </Routes>
-  
+      <Route path = '/me'  Component = {User}/>
+      </Routes>
   </BrowserRouter>
   </div> 
   )
