@@ -1,9 +1,12 @@
 import React ,{useEffect, useState} from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const User= () => {
     const [mydata, setmyData] = useState('');
     const [img, setImg] = useState('');
+
+    const navigate = useNavigate();
 
         useEffect(() => {
             axios.get('http://localhost:3000/api/me', {
@@ -25,7 +28,8 @@ export const User= () => {
           })
 
             if(res.data){
-                 console.log('file is downloaded suceessfully')
+                 console.log('file is downloaded suceessfully and sent to user');
+                 navigate('/completed')
             }
             else{
                 console.log('file did not downloaded')
