@@ -1,11 +1,10 @@
 import React ,{useState}from "react";
-import {   useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export const Singnin = () => {
-    const [email, setEmail] = useState(null);
+   const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
-
     const navigation = useNavigate();
 
   async function theHandler(){
@@ -19,7 +18,6 @@ export const Singnin = () => {
       navigation('/profile')
      }
   }
-
     return (
       <div className="form">
                   <div className="heading">SIGN IN</div>

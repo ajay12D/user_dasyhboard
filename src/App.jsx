@@ -1,6 +1,6 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import React from "react";
- import { Singnup } from "./components/signup.jsx";
+import { Singnup } from "./components/signup.jsx";
 import { Singnin } from "./components/signin.jsx";
 import {UserProfile} from "./components/user_dashboard.jsx";
 import { User } from "./components/user.jsx";
@@ -27,8 +27,7 @@ export const App = () => {
       </Routes>
   </BrowserRouter>
   </div> 
-  )
-  
+  )  
 };
 
 
