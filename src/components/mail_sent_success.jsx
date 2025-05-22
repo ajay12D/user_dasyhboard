@@ -1,5 +1,4 @@
 
-
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDebounce } from "@uidotdev/usehooks";
@@ -27,7 +26,8 @@ export const OnSucessTask =() => {
             }
          });
                 if(response.data){
-                    setUsers(response.data.user)
+                    setUsers(response.data.data);
+                    console.log(`the data`, response.data.data)
                 }
                 else{
                     console.error('users not found')
@@ -58,17 +58,19 @@ export const OnSucessTask =() => {
       const searchTerm = e.target.value;
        setSItem(searchTerm);
 
+       const filteredItems = dbUsers.filter((user) =>
+           user.user.username&&user.address&&
+        user?.user.username?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        user.address?.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        
 
-       const filterItems = dbUsers.filter((user) =>
-        user.username?.toLowerCase().includes(searchTerm.toLowerCase()));
-          
-       
-       setFilterUser(filterItems);
+       setFilterUser(filteredItems);
     }
-    
     
     return (
         <div>
+            
          <img src = {'src/assets/task-completed.png'}
           height= '300px'
          width= '300px'/>
@@ -82,8 +84,11 @@ export const OnSucessTask =() => {
         </div>{filteredUsers?.length == 0
         ? <p>No users found</p>
         : <ul>
-          {filteredUsers.map(user => <li key={user._id}>{user.username}<p>{user.address}</p></li>)}
+          {filteredUsers?.map(user => <li key={user._id}>
+            <div>username: {user?.user?.username}</div>
+            <div>address: {user?.address}</div>
+          </li>)}
         </ul>}
         </div>
-    )
+    )   
 }

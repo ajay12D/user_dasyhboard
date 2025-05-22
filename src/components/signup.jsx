@@ -2,9 +2,11 @@ import React ,{useState}from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import io from "socket.io-client";
+
+
+
 export const Singnup = () => {
-
-
      const [email, setEmail] = useState(null);
         const [password, setPassword] = useState(null);
         const [username, setUsername] = useState(null);
@@ -22,6 +24,8 @@ export const Singnup = () => {
              );
              console.log
              if(response.data){
+              const socket = io.connect('http://localhost:3000')
+              socket.emit("signup", "creted_user");
               
                 navigation('/signin')
              }
