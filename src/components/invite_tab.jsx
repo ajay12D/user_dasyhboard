@@ -21,7 +21,6 @@ export const UserInvited = () => {
              height= '300px'
              width =  '300px'/>
              <h2>USER INVITED</h2>
-            
         </div>
     )
 }
