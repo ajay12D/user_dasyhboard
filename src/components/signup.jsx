@@ -9,7 +9,7 @@ export const Singnup = () => {
         const [password, setPassword] = useState(null);
         const [username, setUsername] = useState(null);
         const [userotp, setOtp] = useState(null);
-
+        const [userNum, setUserNum] = useState(null);
         const navigation = useNavigate();
 
     async function theHandler(e){
@@ -35,13 +35,12 @@ export const Singnup = () => {
       console.log('calling')
       const response =  await axios.post('http://localhost:3000/api/send_otp', {
             email: email,
+            number: userNum
           });
           if(response.data.message){
             console.log(response.data.message)
           }
-         }
-         
-         
+         }      
     return (
       <div className="form">
                   <div className="heading">SIGN UP</div>
@@ -63,6 +62,11 @@ export const Singnup = () => {
                           <input type="text" id="username" placeholder="Enter your username" value ={username} onChange={(e) => {
                             setUsername(e.target.value)
                           }}/>
+                      </div>
+                      <div>
+                        <label htmlFor="number">number</label>
+                        <input type = "text" id = "number" placeholder="Enter number" value = {userNum}
+                           onChange = {e => setUserNum(e.target.value) } />
                       </div>
                       <div>
                       <label htmlFor="otp">otp</label>

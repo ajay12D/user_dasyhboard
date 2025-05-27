@@ -9,11 +9,14 @@ import { admin_login } from "./components/admin_loigin.jsx";
 import { admin_dBorad } from "./components/admin_dashboard.jsx";
 import { UserInvited } from "./components/invite_tab.jsx";
 import { OnSucessTask } from "./components/mail_sent_success.jsx";
+import { RecoilRoot } from "recoil";
+
 
 export const App = () => {
   return(
 <div>
   <BrowserRouter>
+     <RecoilRoot>
      <Routes>
      <Route path= "/signup" Component={Singnup}/>
      <Route path = "/admin_login" Component={admin_login} />
@@ -25,6 +28,7 @@ export const App = () => {
       <Route path = '/me'  Component = {User}/>
       <Route path = "/completed" Component={OnSucessTask} />
       </Routes>
+     </RecoilRoot>
   </BrowserRouter>
   </div> 
   )  
