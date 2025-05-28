@@ -25,10 +25,7 @@ export const UserInvited = () => {
              width =  '300px'/>
              <h2>USER INVITED</h2>
              <h3>admin is: {adminEmail}</h3>
-            <PayPalScriptProvider >
-                <PayPalIntigration/>
-                </PayPalScriptProvider>
-
+            
         </div>
     )
 };
